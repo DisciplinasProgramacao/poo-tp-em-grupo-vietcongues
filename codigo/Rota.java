@@ -17,7 +17,9 @@ public class Rota {
     }
 
     /*
-     * 
+     * Metodo que retorna o inteiro do mês de uma data
+     * Recebe uma data como parametro
+     * Retorna um inteiro referente ao mês
      */
     public static int getMonthFromDate(Date date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM");
@@ -42,6 +44,10 @@ public class Rota {
      * 
      */
     public String relatorio(){
+        return "";
+    }
+    @Override
+    public String toString(){
         return "";
     }
 }

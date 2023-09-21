@@ -1,18 +1,18 @@
 package codigo;
 
-import java.util.List;
+import java.util.*;
 
 public class Frota {
     private int tamanhoFrota;
-    private List<Veiculo> veiculos;
+    HashMap<String, Veiculo> mapaPlacaVeiculo = new HashMap<>();
 
      /*
      * Construtor da classe Frota
      * Recebe como parametro o tamanho da frota e uma lista de veiculos da frota
      */
-     public Frota(int tamanhoFrota, List<Veiculo> veiculos) {
+     public Frota(int tamanhoFrota, HashMap<String, Veiculo> mapaPlacaVeiculo) {
         this.tamanhoFrota = tamanhoFrota;
-        this.veiculos = veiculos;
+        this.mapaPlacaVeiculo = mapaPlacaVeiculo;
     }
 
     /*
@@ -26,7 +26,6 @@ public class Frota {
      * 
      */
     public Veiculo localizarVeiculo(String placa){
-        return Veiculo;
     }
 
     /*
