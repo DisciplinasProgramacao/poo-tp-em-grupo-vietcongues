@@ -30,7 +30,7 @@ public class Veiculo {
      * Retorna "true" ou "false"
      */
     public boolean validaQtdRota() {
-        if (this.qtdRotas >= 0 && this.qtdRotas <= 30) {
+        if (this.qtdRotas >= 0 && this.qtdRotas <= maxRotas) {
             return true;
         } else {
             return false;
