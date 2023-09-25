@@ -4,16 +4,37 @@ public class Tanque {
     private static final double consumo = 8.2;
     private double capacidadeMaxima;
     private double capacidadeAtual;
-    private double totalReabastecido;
 
     /*
      * Construtor da classe Tanque
-     * Recebe como parametro a capacidade maxima do tanque e a quantidade de litos atualmente no tanque
+     * Recebe como parametro a capacidade maxima do tanque e a quantidade de litos
+     * atualmente no tanque
      */
     public Tanque(double capacidadeMaxima, double capacidadeAtual) {
         this.capacidadeMaxima = capacidadeMaxima;
         this.capacidadeAtual = capacidadeAtual;
     }
+
+
+   /*
+ * Método para abastecer o veículo.
+ * Recebe como parâmetro a quantidade de litros a serem abastecidos.
+ * Retorna a capacidade atual do tanque após o abastecimento.
+ */
+public double abastecer(double litros) {
+    double espacoRestante = this.capacidadeMaxima - this.capacidadeAtual; // Calcula o espaço restante no tanque.
+
+    if (litros <= espacoRestante) { // Verifica se a quantidade de litros cabe no espaço restante no tanque.
+        this.capacidadeAtual += litros; // Adiciona os litros ao tanque.
+        return this.capacidadeAtual; // Retorna a capacidade atual do tanque após o abastecimento.
+    } else {
+        this.capacidadeAtual = this.capacidadeMaxima; // Enche completamente o tanque.
+        return this.capacidadeAtual; // Retorna a capacidade atual do tanque após o abastecimento.
+    }
+}
+
+
+
 
     /*
      * Método que calcula a autonomia máxima do veiculo
@@ -33,20 +54,4 @@ public class Tanque {
         return this.capacidadeAtual * consumo;
     }
 
-    /*
-     * Metodo para abastecer o veiculo
-     * Recebe como parametro a quantidade de litros do abastecimento
-     * Retorna o tanque atual: Se a quantidade de litros couber no tanque, altera a quantidade, se não retorna a mesma quantidade anterior
-     */
-    public double abastecer(double litros) {
-        if(this.capacidadeAtual + litros <= this.capacidadeMaxima){
-            this.capacidadeAtual = this.capacidadeAtual + litros;
-            this.totalReabastecido = this.totalReabastecido + litros;
-            return capacidadeAtual;
-        }
-        else{
-            return capacidadeAtual;
-        }
-    }
-    
 }
