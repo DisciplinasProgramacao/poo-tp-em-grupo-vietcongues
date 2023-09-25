@@ -2,9 +2,9 @@ package codigo;
 
 public class Tanque {
     private static final double consumo = 8.2;
-    protected double capacidadeMaxima;
-    protected double capacidadeAtual;
-    protected double totalReabastecido;
+    private double capacidadeMaxima;
+    private double capacidadeAtual;
+    private double totalReabastecido;
 
     /*
      * Construtor da classe Tanque

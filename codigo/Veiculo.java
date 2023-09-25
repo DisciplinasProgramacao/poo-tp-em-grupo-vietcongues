@@ -5,12 +5,12 @@ import java.util.*;
 public class Veiculo {
     private static final int maxRotas = 30;
     private static final double consumo = 8.2;
-    protected String placa;
+    private String placa;
     private List<Rota> rotas;
-    protected int qtdRotas;
-    protected double tanqueAtual;
-    protected double tanqueMax;
-    protected double totalReabastecido;
+    private int qtdRotas;
+    private double tanqueAtual;
+    private double tanqueMax;
+    private double totalReabastecido;
 
     /*
      * Construtor da classe Veiculo
