@@ -24,7 +24,8 @@ public class Veiculo {
     }
 
     /*
-     * Método que valida se a quantidade de rotas cadastradas para o veiculo é maior que 0 e menor que 30
+     * Método que valida se a quantidade de rotas cadastradas para o veiculo é maior
+     * que 0 e menor que 30
      * Não possui paramentros
      * Retorna "true" ou "false"
      */
@@ -39,16 +40,16 @@ public class Veiculo {
     /*
      * Metodo para atribuir uma rota para um veiculo
      * Recebe uma rota como parametros
-     * Verifica se a autonomia atual é suficiente pra execultar a rota e verifica se o veiculo não atingiu o limite máximo de rotas
+     * Verifica se a autonomia atual é suficiente pra execultar a rota e verifica se
+     * o veiculo não atingiu o limite máximo de rotas
      * Retorna "true" ou "false"
      */
     public boolean addRota(Rota rota) {
-        if(autonomiaAtual() >= rota.getQuilometragem() && validaQtdRota() == true){
+        if (autonomiaAtual() >= rota.getQuilometragem() && validaQtdRota() == true) {
             rotas.add(rota);
-            qtdRotas ++;
+            qtdRotas++;
             return true;
-        }
-        else{
+        } else {
             return false;
 
         }
@@ -75,15 +76,15 @@ public class Veiculo {
     /*
      * Metodo para abastecer o veiculo
      * Recebe como parametro a quantidade de litros do abastecimento
-     * Retorna o tanque atual: Se a quantidade de litros couber no tanque, altera a quantidade, se não retorna a mesma quantidade anterior
+     * Retorna o tanque atual: Se a quantidade de litros couber no tanque, altera a
+     * quantidade, se não retorna a mesma quantidade anterior
      */
     public double abastecer(double litros) {
-        if(this.tanqueAtual + litros <= this.tanqueMax){
+        if (this.tanqueAtual + litros <= this.tanqueMax) {
             this.tanqueAtual = this.tanqueAtual + litros;
             this.totalReabastecido = this.totalReabastecido + litros;
             return tanqueAtual;
-        }
-        else{
+        } else {
             return tanqueAtual;
         }
     }
@@ -110,7 +111,7 @@ public class Veiculo {
      * Retorna a quantidade de km total
      */
     public double kmTotal() {
-        double kmTotal = 0 ;
+        double kmTotal = 0;
         for (Rota rota : rotas) {
             kmTotal = kmTotal + rota.getQuilometragem();
         }
@@ -124,10 +125,17 @@ public class Veiculo {
      */
     public void percorrerRota(Rota rota) {
         for (Rota r : rotas) {
-            if( rota == r)
-            {
-                this.tanqueAtual = tanqueAtual-(rota.getQuilometragem()/consumo);
+            if (rota == r) {
+                this.tanqueAtual = tanqueAtual - (rota.getQuilometragem() / consumo);
             }
         }
     }
+
+    public int getQtdRotas() {
+        return qtdRotas;
+    }
+
+
+    
+
 }
