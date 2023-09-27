@@ -46,8 +46,12 @@ public class Rota {
     public String relatorio(){
         return "";
     }
+
     @Override
-    public String toString(){
-        return "";
+    public String toString() {
+        return "Rota [quilometragem=" + quilometragem + ", data=" + data + "]";
     }
+   
+
+
 }
