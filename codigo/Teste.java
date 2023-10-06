@@ -30,7 +30,7 @@ public class Teste {
                     placa = scanner.next();
                     veiculo = new Veiculo(placa);
                     frota.adicionarVeiculo(veiculo);
-                    System.out.println("Veículo adicionado com sucesso!");
+                    System.out.println("\nVeículo adicionado com sucesso!\n");
                     break;
                 case 2:
                     System.out.print("Digite a placa do veículo: ");
@@ -44,9 +44,9 @@ public class Teste {
                         data = LocalDate.parse(dataString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                         rota = new Rota(quilometragem, data);
                         veiculoParaRota.addRota(rota);
-                        System.out.println("Rota adicionada ao veículo com sucesso!");
+                        System.out.println("\nRota adicionada ao veículo com sucesso!\n");
                     } else {
-                        System.out.println("Veículo não encontrado na frota.");
+                        System.out.println("\nVeículo não encontrado na frota.\n");
                     }
                     break;
                 case 3:
@@ -57,9 +57,9 @@ public class Teste {
                         System.out.print("Digite a quantidade de litros a ser reabastecida: ");
                         litros = scanner.nextDouble();
                         veiculoParaReabastecer.abastecer(litros);
-                        System.out.println("Veículo reabastecido com sucesso!");
+                        System.out.println("\nVeículo reabastecido com sucesso!\n");
                     } else {
-                        System.out.println("Veículo não encontrado na frota.");
+                        System.out.println("\nVeículo não encontrado na frota.\n");
                     }
                     break;
                 case 4:

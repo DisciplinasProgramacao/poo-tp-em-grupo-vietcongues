@@ -38,8 +38,4 @@ public class Tanque {
         return tanqueMax;
     }
 
-
-    
-    
-
 }

@@ -43,23 +43,12 @@ public class Veiculo {
         return tanque.abastecer(litros);
     }
 
-    public double kmTotalPorMes(int mes) {
-        double kmTotal = 0;
-        for (Rota rota : rotas) {
-
-            if (rota.getMes() == mes) {
-                kmTotal += rota.getQuilometragem();
-            }
-        }
-        return kmTotal;
-    }
-
     public double kmTotal() {
         double kmTotal = 0;
         for (Rota rota : rotas) {
             kmTotal = kmTotal + rota.getQuilometragem();
         }
-        return kmTotal();
+        return kmTotal;
     }
 
     public void percorrerRota(Rota rota) {
