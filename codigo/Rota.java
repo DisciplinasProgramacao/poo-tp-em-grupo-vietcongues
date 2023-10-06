@@ -1,57 +1,37 @@
 package codigo;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Rota {
     private double quilometragem;
-    private Date data;
+    private LocalDate data;
 
-    /*
-     * Construtor da classe Rota
-     * Recebe como parametro a quilometragem da rota e a data da rota
-     */
-    public Rota(double quilometragem, Date data) {
+    public Rota(double quilometragem, LocalDate data) {
         this.quilometragem = quilometragem;
         this.data = data;
     }
 
-    /*
-     * Metodo que retorna o inteiro do mês de uma data
-     * Recebe uma data como parametro
-     * Retorna um inteiro referente ao mês
-     */
-    public static int getMonthFromDate(Date date) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM");
-        String month = dateFormat.format(date);
-        return Integer.parseInt(month);
-    }
-
-    //Gets
     public double getQuilometragem() {
         return quilometragem;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public int getMes(){
-        return getMonthFromDate(data);
+    public int getMes() {
+        return data.getMonthValue();
     }
 
-    /*
-     * 
-     */
-    public String relatorio(){
-        return "";
+    public String relatorio() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada = data.format(formatter);
+        return "Rota realizada em " + dataFormatada + " com quilometragem de " + quilometragem + " km.";
     }
 
     @Override
     public String toString() {
         return "Rota [quilometragem=" + quilometragem + ", data=" + data + "]";
     }
-   
-
-
 }
