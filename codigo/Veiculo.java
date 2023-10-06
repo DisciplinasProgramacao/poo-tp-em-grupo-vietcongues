@@ -9,12 +9,13 @@ public class Veiculo {
     private String placa;
     private ArrayList<Rota> rotas;
     private int qtdRotas;
-    private double tanqueAtual;
-    private double tanqueMax;
     private double totalReabastecido;
+    Tanque tanque;
 
     public Veiculo(String Placa) {
         this.placa = Placa;
+        this.rotas = new ArrayList<>();
+        this.tanque = new Tanque();
 
     }
 
@@ -30,21 +31,16 @@ public class Veiculo {
     }
 
     public double autonomiaMaxima() {
-        return this.tanqueMax * CONSUMO;
+        return tanque.autonomiaMaxima();
     }
 
     public double autonomiaAtual() {
-        return this.tanqueAtual * CONSUMO;
+        return tanque.autonomiaAtual();
     }
 
     public double abastecer(double litros) {
-        if (this.tanqueAtual + litros <= this.tanqueMax) {
-            this.tanqueAtual = this.tanqueAtual + litros;
-            this.totalReabastecido = this.totalReabastecido + litros;
-            return tanqueAtual;
-        } else {
-            return tanqueAtual;
-        }
+
+        return tanque.abastecer(litros);
     }
 
     public double kmTotalPorMes(int mes) {
@@ -67,10 +63,16 @@ public class Veiculo {
     }
 
     public void percorrerRota(Rota rota) {
-        for (Rota r : rotas) {
-            if (rota == r) {
-                this.tanqueAtual = tanqueAtual - (rota.getQuilometragem() / CONSUMO);
-            }
+        double combustivelConsumido = rota.getQuilometragem() / CONSUMO;
+
+        // Verifica se há combustível suficiente no tanque para percorrer a rota
+        if (combustivelConsumido <= tanque.autonomiaAtual()) {
+            // Reduz o tanque atual em função do combustível consumido durante a rota
+            tanque.abastecer(-combustivelConsumido);
+            System.out.println(
+                    "Rota percorrida com sucesso. Combustível consumido: " + combustivelConsumido + " litros.");
+        } else {
+            System.out.println("Não há combustível suficiente para percorrer a rota.");
         }
     }
 
@@ -107,7 +109,5 @@ public class Veiculo {
     public double getTotalReabastecido() {
         return totalReabastecido;
     }
-
-    
 
 }

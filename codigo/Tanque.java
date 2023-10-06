@@ -2,12 +2,13 @@ package codigo;
 
 public class Tanque {
     private static final double CONSUMO = 8.2;
+    private double tanqueAtual;
+    private double tanqueMax;
     private double capacidadeMaxima;
     private double capacidadeAtual;
 
-    public Tanque(double capacidadeMaxima, double capacidadeAtual) {
-        this.capacidadeMaxima = capacidadeMaxima;
-        this.capacidadeAtual = capacidadeAtual;
+    public Tanque() {
+
     }
 
     public double abastecer(double litros) {
@@ -22,11 +23,23 @@ public class Tanque {
     }
 
     public double autonomiaMaxima() {
-        return this.capacidadeMaxima * CONSUMO;
+        return this.tanqueMax * CONSUMO;
     }
 
     public double autonomiaAtual() {
-        return this.capacidadeAtual * CONSUMO;
+        return this.tanqueAtual * CONSUMO;
     }
+
+    public double getTanqueAtual() {
+        return tanqueAtual;
+    }
+
+    public double getTanqueMax() {
+        return tanqueMax;
+    }
+
+
+    
+    
 
 }
