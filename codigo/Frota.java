@@ -16,12 +16,9 @@ public class Frota {
 
         for (Veiculo veiculo : listaVeiculos) {
             relatorio.append("\n Carro Placa: ").append(veiculo.getPlaca()).append("\n");
-            relatorio.append("Autonomia Máxima: ").append(veiculo.autonomiaMaxima()).append(" km\n");
-            relatorio.append("Autonomia Atual: ").append(veiculo.autonomiaAtual()).append(" km\n");
-            relatorio.append("Kilometragem Total: ").append(veiculo.kmTotal()).append(" km\n");
-            relatorio.append("Kilometragem Média: ").append(veiculo.kmTotal() / veiculo.getQtdRotas()).append(" km/rota\n");
             relatorio.append("Litros Reabastecidos: ").append(veiculo.getTotalReabastecido()).append(" litros\n");
             relatorio.append("Quilometragem do Mês Atual: ").append(veiculo.kmTotalNoMesAtual()).append(" km\n");
+            relatorio.append("Kilometragem Total: ").append(veiculo.kmTotal()).append(" km\n");
 
             relatorio.append("\n");
         }

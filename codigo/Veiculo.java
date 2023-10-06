@@ -43,6 +43,20 @@ public class Veiculo {
         return tanque.abastecer(litros);
     }
 
+    public double kmTotalNoMesAtual() {
+        LocalDate dataAtual = LocalDate.now();
+        int mesAtual = dataAtual.getMonthValue();
+        double kmTotalMesAtual = 0;
+
+        for (Rota rota : rotas) {
+            if (rota.getMes() == mesAtual) {
+                kmTotalMesAtual += rota.getQuilometragem();
+            }
+        }
+
+        return kmTotalMesAtual;
+    }
+
     public double kmTotal() {
         double kmTotal = 0;
         for (Rota rota : rotas) {
@@ -71,20 +85,6 @@ public class Veiculo {
         } else {
             return false;
         }
-    }
-
-    public double kmTotalNoMesAtual() {
-        LocalDate dataAtual = LocalDate.now();
-        int mesAtual = dataAtual.getMonthValue();
-        double kmTotalMesAtual = 0;
-
-        for (Rota rota : rotas) {
-            if (rota.getMes() == mesAtual) {
-                kmTotalMesAtual += rota.getQuilometragem();
-            }
-        }
-
-        return kmTotalMesAtual;
     }
 
     public int getQtdRotas() {
