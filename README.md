@@ -10,7 +10,7 @@ A empresa de logística busca automatizar o controle da frota de veículos, como
 
 * Danilo Moreira
 * Lineker Emanuel
-* Luisa Ferreira
+* LuÍsa Ferreira
 * Sérgio Junior
 * Vitor Balbino
 
