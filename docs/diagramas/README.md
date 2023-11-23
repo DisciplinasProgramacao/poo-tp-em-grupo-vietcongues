@@ -56,6 +56,8 @@ d) Calcular a despesa total de um veículo, considerando combustível e manuten�
 
 ## Arquitetura
 
+```
+
 Presentation Layer ---------------------------
 	MainMenu
 
@@ -149,3 +151,5 @@ Veículo Domain Layer ---------------------------
 		+ <<Construtor>> Rota(dataDefinida: Date, quilometragemApercorrer: float): Rota;
 		+ Percorrer(): void
 		____________________
+
+```
