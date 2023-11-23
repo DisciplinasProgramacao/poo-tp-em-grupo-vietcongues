@@ -91,10 +91,10 @@ Application Layer ---------------------------
 			- LimiteQuilometragemParaManutencao: float; (precisam realizar manutenções programadas de acordo com quilometragens definidas.)
 			- Preco: float;
 			____________________
-			+ ProcessarManutencao(IMaintainable): void;
+			+ ProcessarManutencao(IMaintainable): void;
 			____________________
 		
-		<<Interface>> IMaintainable
+		<<Interface>> IMaintainable
 			- ManutencoesProcessadas: Lista<Manutencao>;
 			- CustoAcumuladoEmManutencao: float;
 			____________________
@@ -104,7 +104,7 @@ Application Layer ---------------------------
 
 Veículo Domain Layer ---------------------------
 
-	Veículo : IMaintainable
+	Veículo : IMaintainable
 		- <<static>> LIMITE_ROTAS_MES: int = 30;
 		- <<final>> placa: string;
 		- historicoRotas: Map<mes, Lista<Rota>>;
