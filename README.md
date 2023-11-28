@@ -17,3 +17,7 @@ A empresa de logística busca automatizar o controle da frota de veículos, como
 ## Professores responsáveis
 
 * João Caram
+
+## Documentação do Projeto
+
+[Documentação](/docs/README.md)
