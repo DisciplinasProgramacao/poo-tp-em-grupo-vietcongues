@@ -1,7 +1,7 @@
 # Documentação do Projeto
 
 A documentação do projeto é composta pelos seguintes itens: 
- - [Diagramas de classe do projeto (histórico de versões)](/docs/diagramas/) **Obrigatório**
+ - [Diagramas de classes do projeto](/docs/diagramas/README.md) **Obrigatório**
  - [Instruções para uso](/docs/instrucoes.md) **Obrigatório**
  - [Quadro de tarefas do projeto](https://insira.aqui.sua.URL) **Obrigatório para trabalhos em grupo**
  - [Link para o vídeo de apresentação (edite este mesmo md para colocar sua URL)](http://insira.aqui.sua.URL) **Somente em caso de apresentação por vídeo**
