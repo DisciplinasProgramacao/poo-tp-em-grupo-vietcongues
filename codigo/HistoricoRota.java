@@ -63,5 +63,23 @@ public class HistoricoRota {
         RotasAtribuidas.stream()
                 .filter(rota -> rota.getData().isAfter(data) || rota.getData().isEqual(data))
                 .forEach(System.out::println);
+
+    /* Cria um `StringBuilder` para armazenar o relatório
+     * Adiciona o cabeçalho do relatório
+     * Adiciona o número de rotas realizadas no mês
+     * Adiciona a quilometragem total percorrida no mês
+     * Retorna o `StringBuilder` como uma string
+     */
+
+    public String relatorioMes(LocalDate mes) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Relatório de Rotas realizadas no mês de " + mes.getMonth() + "\n");
+        sb.append("Número de Rotas: " + this.totalRotasPorMes(mes) + "\n");
+        sb.append("Quilometragem total percorrida: " + this.totalQuilometragemPercorridaMensal(mes) + "\n");
+        return sb.toString();
+    }
+
+
+        
     }
 }
