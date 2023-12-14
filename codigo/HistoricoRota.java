@@ -15,7 +15,7 @@ public class HistoricoRota {
 
     /*
      * Método para adicionar uma nova rota a lista histórica de rotas
-     * Recebe uma rota como paramentro 
+     * Recebe uma rota como parâmetro 
      * Não retorna nada
      */
     public void novaRota(Rota rota) {
@@ -24,7 +24,7 @@ public class HistoricoRota {
 
     /*
      * Método que retorna a quantidade de rotas atribuídas do mês
-     * Não recebe parametro
+     * Não recebe parâmetro
      * Retorna um inteiro, quantidade de rotas
      */
     public int TotalRotasPorMes(int mes) {
@@ -35,8 +35,8 @@ public class HistoricoRota {
     }
 
     /*
-     * Método que retorna o Total Quilometros Percorridos Mensal
-     * Retorna Float com a quantidade de quilometros
+     * Método que retorna o Total Quilômetros Percorridos Mensal
+     * Retorna Float com a quantidade de quilômetros
      */
     public float TotalQuilometragemPercorridaMensal(LocalDate data) {
         return RotasAtribuidas.stream()
@@ -57,7 +57,7 @@ public class HistoricoRota {
 
     /*
      * Método que imprime todas as rotas a partir de uma data
-     * Imprime todas as rotas do periodo
+     * Imprime todas as rotas do períodos
      */
     public void imprimirRotasAPartirDaData(LocalDate data) {
         RotasAtribuidas.stream()
