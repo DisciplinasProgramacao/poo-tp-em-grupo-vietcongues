@@ -89,7 +89,7 @@ public class Veiculo {
         if (rota.getQuilometragem() > tanque.autonomiaAtual()){
             double litrosCombustivel = rota.getQuilometragem() / tanque.ConsumoKmL();
 
-            tanque.abastecer(litrosCombustivel, rota.getData());
+            tanque.abastecerAte(litrosCombustivel, rota.getData());
 
             sb.append("abasteceu " + litrosCombustivel + "L de " + tanque.DescricaoCombustivel() + ",\n");
         }
@@ -121,16 +121,11 @@ public class Veiculo {
     }
 
 
-    public String relatorio(){
-        StringBuilder relatorio = new StringBuilder();
+    public String relatorioCurto(){
+        StringBuilder relatorio = new StringBuilder("Veículo "+ getPlaca());
 
-        // relatorio.append("\n Carro Placa: ").append(veiculo.getPlaca()).append("\n");
-        // relatorio.append("Litros Reabastecidos: ").append(veiculo.getTotalReabastecido()).append(" litros\n");
-        // relatorio.append("Quilometragem do Mês Atual: ").append(veiculo.kmTotalNoMesAtual()).append(" km\n");
-        // relatorio.append("Kilometragem Total: ").append(veiculo.kmTotal()).append(" km\n");
-
-        relatorio.append("\n");
+        relatorio.append("");
         
-        return relatorio().toString();
+        return relatorio.toString();
     }
 }

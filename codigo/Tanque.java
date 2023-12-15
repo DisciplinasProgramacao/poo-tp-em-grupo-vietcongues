@@ -30,13 +30,21 @@ public class Tanque {
     public void abastecer(double litros, LocalDate data) 
         throws IllegalArgumentException
     {        
-        if (Util.isDoubleInRange(litros, 0, getEspaçoRestanteEmLitros(), 0.01)) {
-            throw new IllegalArgumentException("Litros deve estar entre 0 e " + getEspaçoRestanteEmLitros());
+        if (!Util.isDoubleInRange(litros, 0, getEspaçoRestanteEmLitros(), 0.01)) {
+            throw new IllegalArgumentException("Litros ("+litros+") deve estar entre 0 e " + getEspaçoRestanteEmLitros());
         }
 
         double preco = litros * combustivel.getPrecoMedioEmRs();
 
         registrosAbastecimentos.add(new RegistroAbastecimento(litros, preco, data));
+    }
+    
+    
+    public void abastecerAte(double litros, LocalDate data) 
+        throws IllegalArgumentException
+    {        
+        double litrosFaltantes = litros - capacidadeAtual;
+        abastecer(litrosFaltantes, data);
     }
 
 

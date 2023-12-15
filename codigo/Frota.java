@@ -21,7 +21,14 @@ public class Frota {
     public String relatorioFrota() {
         StringBuilder relatorio = new StringBuilder("Relatório Frota {\n");
 
-        listaVeiculos.stream().forEach(veiculo -> relatorio.append(veiculo.relatorio()+ ";\n") );
+        String placaMaiorTotal = maiorKmTotal().map(Veiculo::getPlaca).orElse("-");
+        String placaMaiorMedia = maiorKmMedia().map(Veiculo::getPlaca).orElse("-");
+        
+        relatorio.append("Total de veículos: " + listaVeiculos.size() +";\n");
+        relatorio.append("Veículo com maior Km Total: "+ placaMaiorTotal +";\n");
+        relatorio.append("Veículo com maior Km Média: "+ placaMaiorMedia +";\n\n");
+
+        listaVeiculos.stream().forEach(veiculo -> relatorio.append(veiculo.relatorioCurto() + ";\n") );
 
         relatorio.append("} // fim Relatório Frota ");        
         return relatorio.toString();

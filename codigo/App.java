@@ -25,9 +25,18 @@ public class App {
     }
 
 
+    public static void QualquerTeclaContinue(){
+        QuebraLinha();
+        System.out.println("Tecle qualquer dígito para continuar");
+        scanner.hasNextByte();
+        scanner.next();
+    }
+
+
     public static void main(String[] args) {
         scanner = new Scanner(System.in);
         random = new Random();
+        frota = new Frota();
 
         MainMenu();
 
@@ -137,7 +146,7 @@ public class App {
             int daylimit = random.nextInt(5 , 15);
 
             for (int j = 1; j <= days; j++){
-                Rota rota = new Rota(random.nextInt((int)Math.ceil(veiculo.autonomiaMaxima())), LocalDate.now().minusDays(days-j));
+                Rota rota = new Rota(random.nextInt((int)Math.floor(veiculo.autonomiaMaxima())), LocalDate.now().minusDays(days-j));
                 
                 veiculo.addRota(rota);
 
@@ -148,7 +157,7 @@ public class App {
         }
         
         System.out.println("Dados Testes carregados.");
-        scanner.next();
+        QualquerTeclaContinue();
     }
 
 
@@ -161,8 +170,11 @@ public class App {
             StringBuilder MenuText = new StringBuilder();
             {
                 MenuText.append("\n" + "Selecione uma opção:");
-                MenuText.append("\n" + "1 - ");
-                MenuText.append("\n" + "2 - ");
+                MenuText.append("\n" + "1 - Ver lista de veículos");
+                MenuText.append("\n" + "2 - Criar veículo");
+                MenuText.append("\n" + "3 - Veículo com maior Km total em vida útil");
+                MenuText.append("\n" + "4 - Veículo com maior Km média em vida útil");
+                MenuText.append("\n" + "5 - Relatório frota");
                 MenuText.append("\n" + "0 - Voltar");
             }
             
@@ -181,6 +193,19 @@ public class App {
 
                     case 2:
                         
+                        break;
+
+                    case 3:
+                        
+                        break;
+
+                    case 4:
+                        
+                        break;
+
+                    case 5:
+                        System.out.println(frota.relatorioFrota());
+                        QualquerTeclaContinue();
                         break;
 
                     case 0:
