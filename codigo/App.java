@@ -291,12 +291,7 @@ public class App {
     static void VeiculoMenu(){
         int opcao = -1;
 
-        
-
-        while (opcao != 0) {
-            limparTela();
-            
-            System.out.println("Menu Veículo:");
+        System.out.println("Menu Veículo:");
         
             Veiculo veiculoSelecionado;
             String placa;
@@ -309,7 +304,6 @@ public class App {
 
                 if (veiculoPossivel.isPresent()) {
                     veiculoSelecionado = veiculoPossivel.get();
-                    System.out.println("\nVeículo encontrado: " + veiculoSelecionado.relatorioCurto());
                 } else {
                     System.out.println("Nenhum veículo encontrado com a placa " + placa);
                     QualquerTeclaContinue();
@@ -317,13 +311,21 @@ public class App {
                 }
             }
 
+
+        while (opcao != 0) {
+            limparTela();
+            
+            System.out.println("Menu Veículo:");
+            System.out.println("\nVeículo selecionado: " + veiculoSelecionado.relatorioCurto());
+
             QuebraLinha();
 
             StringBuilder MenuText = new StringBuilder();
             {
                 MenuText.append("\n" + "Selecione uma opção:");
-                MenuText.append("\n" + "1 - ");
-                MenuText.append("\n" + "2 - ");
+                MenuText.append("\n" + "1 - Atribuir rota");
+                MenuText.append("\n" + "2 - Percorrer próxima rota");
+                MenuText.append("\n" + "3 - Relatório extenso");
                 MenuText.append("\n" + "0 - Voltar");
             }
             
@@ -337,10 +339,15 @@ public class App {
             {
                 switch (opcao) {
                     case 1:
-                        
+                        AtribuirRota(veiculoSelecionado);
+                        QualquerTeclaContinue();
                         break;
 
                     case 2:
+                        
+                        break;
+
+                    case 3:
                         
                         break;
 
@@ -354,5 +361,85 @@ public class App {
         }
     }
 
+
+    public static void AtribuirRota(Veiculo veiculoSelecionado){
+        QuebraLinha();
+        System.out.println("Nova rota:");
+        
+        double quilometragem;
+        {
+            System.out.println("\nQuilometragem: ");
+
+            if (!scanner.hasNextDouble()){
+                System.out.println("Opção não é número válido");
+                return;
+            }
+            
+            quilometragem = scanner.nextDouble();
+            if (!Util.isDoubleInRange(quilometragem, 0, veiculoSelecionado.autonomiaMaxima(), 0.001))
+            {
+                System.out.println("\nQuilometragem ("+quilometragem+") excede autonomia máxima ("+veiculoSelecionado.autonomiaMaxima()+")");
+                return;
+            }
+        }
+
+        LocalDate data;
+        {
+            System.out.println("\nData: ");
+
+            int ano;
+            {
+                System.out.print("Ano: ");
+
+                if (!scanner.hasNextInt()){
+                    System.out.println("\nOpção não é número válido");
+                    return;
+                }
+                ano = scanner.nextInt();   
+            }
+
+            int mes;
+            {
+                System.out.print("Mes (núm): ");
+
+                if (!scanner.hasNextInt()){
+                    System.out.println("\nOpção não é número válido");
+                    return;
+                }
+
+                mes = scanner.nextInt(); 
+
+                if (!Util.isIntInRange(mes, 1, 12))
+                {
+                    System.out.println("\nNúmero não equivale à opções");
+                    return;
+                }  
+            }           
+
+            int dia;
+            {
+                System.out.print("dia: ");
+
+                if (!scanner.hasNextInt()){
+                    System.out.println("\nOpção não é número válido");
+                    return;
+                }
+
+                dia = scanner.nextInt(); 
+
+                if (!Util.isIntInRange(dia, 1, YearMonth.of(ano, mes).lengthOfMonth()))
+                {
+                    System.out.println("\nDia não existe no mês " + mes + " / " + ano);
+                    return;
+                }  
+            }
+            
+            data = LocalDate.of(ano, mes, dia);
+        }
+
+        Rota rota = new Rota(quilometragem, data);
+        veiculoSelecionado.addRota(rota);
+        System.out.println("\nNova " + rota.toString());
+    }
 
 }
