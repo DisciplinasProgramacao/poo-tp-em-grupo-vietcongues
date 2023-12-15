@@ -8,8 +8,8 @@ public class App {
 
     public static Frota frota;
     public static Scanner scanner;
-
     static Random random;
+
 
     /**
      * "Limpa" a tela
@@ -45,6 +45,7 @@ public class App {
         QuebraLinha();
         scanner.close();
     }
+
 
     /*
     static void BaseMenuLoop(){
@@ -118,7 +119,7 @@ public class App {
                         break;
 
                     case 2:
-                        FrotaMenuLoop();
+                        FrotaMenu();
                         break;
 
                     case 0:
@@ -161,7 +162,7 @@ public class App {
     }
 
 
-    static void FrotaMenuLoop(){
+    static void FrotaMenu(){
         int opcao = -1;
 
         while (opcao != 0) {
@@ -172,9 +173,125 @@ public class App {
                 MenuText.append("\n" + "Selecione uma opção:");
                 MenuText.append("\n" + "1 - Ver lista de veículos");
                 MenuText.append("\n" + "2 - Criar veículo");
-                MenuText.append("\n" + "3 - Veículo com maior Km total em vida útil");
-                MenuText.append("\n" + "4 - Veículo com maior Km média em vida útil");
-                MenuText.append("\n" + "5 - Relatório frota");
+                MenuText.append("\n" + "3 - Menu veículo");
+                MenuText.append("\n" + "4 - Relatório frota");
+                MenuText.append("\n" + "0 - Voltar");
+            }
+            
+            System.out.println(MenuText.append("\n\n" + "Opção:").toString());
+
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+            }
+
+            // Casos
+            {
+                switch (opcao) {
+                    case 1:
+                        System.out.println(frota.ListaVeiculosString());
+                        QualquerTeclaContinue();
+                        break;
+
+                    case 2:
+                        CriarVeiculo();
+                        QualquerTeclaContinue();
+                        break;
+
+                    case 3:
+                        VeiculoMenu();
+                        break;
+
+                    case 4:
+                        System.out.println(frota.relatorioFrota());
+                        QualquerTeclaContinue();
+                        break;
+
+                    case 0:
+                        return;
+                
+                    default: // -1 ou número fora dos casos;
+                        break;
+                }
+            }
+        }
+    }
+
+
+    public static void CriarVeiculo(){
+        QuebraLinha();
+        System.out.println("Novo veículo:");
+        
+        String placa;
+        {
+            System.out.println("\nPlaca: ");
+            placa = scanner.next();
+            System.out.print("");
+        }
+
+        EVeiculo tipo;
+        {
+            System.out.println("\nTipo: ");
+            System.out.println("0 - Carro");
+            System.out.println("1 - Van");
+            System.out.println("2 - Furgão");
+            System.out.println("3 - Caminhão");
+            System.out.println("Opção: ");
+
+            if (!scanner.hasNextInt()){
+                System.out.println("Opção não é número válido");
+                return;
+            }
+            
+            int tipoInt = scanner.nextInt();
+            if (!Util.isIntInRange(tipoInt, 0, 3))
+            {
+                System.out.println("Número não equivale à opções");
+                return;
+            }
+
+            tipo = EVeiculo.fromInt(tipoInt);
+        }
+
+        ECombustivel combustivel;
+        {
+            System.out.println("\nCombustível: ");
+            System.out.println("0 - Álcool");
+            System.out.println("1 - Gasolina");
+            System.out.println("2 - Diesel");
+            System.out.println("Opção: ");
+
+            if (!scanner.hasNextInt()){
+                System.out.println("Opção não é número válido");
+                return;
+            }
+            
+            int combustivelInt = scanner.nextInt();
+            if (!Util.isIntInRange(combustivelInt, 0, 2))
+            {
+                System.out.println("Número não equivale à opções");
+                return;
+            }
+
+            combustivel = ECombustivel.fromInt(combustivelInt);
+        }
+
+        Veiculo v = new Veiculo(placa, tipo, combustivel);
+        frota.adicionarVeiculo(v);
+        System.out.println("\nNovo " + v.relatorioCurto());
+    }
+
+
+    static void VeiculoMenu(){
+        int opcao = -1;
+
+        while (opcao != 0) {
+            limparTela();
+
+            StringBuilder MenuText = new StringBuilder();
+            {
+                MenuText.append("\n" + "Selecione uma opção:");
+                MenuText.append("\n" + "1 - ");
+                MenuText.append("\n" + "2 - ");
                 MenuText.append("\n" + "0 - Voltar");
             }
             
@@ -195,19 +312,6 @@ public class App {
                         
                         break;
 
-                    case 3:
-                        
-                        break;
-
-                    case 4:
-                        
-                        break;
-
-                    case 5:
-                        System.out.println(frota.relatorioFrota());
-                        QualquerTeclaContinue();
-                        break;
-
                     case 0:
                         return;
                 
@@ -217,5 +321,6 @@ public class App {
             }
         }
     }
+
 
 }

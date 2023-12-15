@@ -122,7 +122,7 @@ public class Veiculo {
 
 
     public String relatorioCurto(){
-        StringBuilder relatorio = new StringBuilder("Veículo "+ getPlaca());
+        StringBuilder relatorio = new StringBuilder("Veículo {"+ getPlaca() + ", " + tipoVeiculo.getDescricao() + ", " + tanque.DescricaoCombustivel() + '}');
 
         relatorio.append("");
         

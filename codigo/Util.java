@@ -8,6 +8,10 @@ public class Util {
     public static boolean isDoubleInRange(double number, double start, double end, double epsilon) {
         return (number >= start - epsilon) && (number <= end + epsilon);
     }
+
+    public static boolean isIntInRange(int number, int start, int end) {
+        return (number >= start) && (number <= end);
+    }
     
     public static boolean isNullOrEmpty(String str) {
         return str == null || str.isBlank();
