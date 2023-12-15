@@ -90,4 +90,14 @@ public class HistoricoRota {
             .filter(rota -> !rota.getPercorrido())
             .max(Comparator.comparing(Rota::getData));
     }
+
+
+    public void PercorrerRota(Rota rota){
+        if (!RotasAtribuidas.contains(rota)){
+            return;
+        }
+
+        // Busco pelo index caso 'equals' não signifique o mesmo objeto na memória.
+        RotasAtribuidas.get(RotasAtribuidas.indexOf(rota)).Percorrer();
+    }
 }

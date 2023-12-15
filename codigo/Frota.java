@@ -13,6 +13,10 @@ public class Frota {
         this.listaVeiculos = new ArrayList<>();
     }
 
+    public void limparListaVeiculos(){
+        listaVeiculos.clear();
+    }
+
 
     public String relatorioFrota() {
         StringBuilder relatorio = new StringBuilder("Relatório Frota {\n");

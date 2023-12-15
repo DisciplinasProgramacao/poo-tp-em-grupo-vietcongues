@@ -17,7 +17,7 @@ public class Veiculo {
     private ArrayList<ManutencaoExecutada> manutencoesExecutadas;
 
 
-    private double autonomiaMaxima() {
+    public double autonomiaMaxima() {
         return tanque.autonomiaMaxima();
     }
 
@@ -108,7 +108,7 @@ public class Veiculo {
             sb.append("executou Manutenção Troca de Peças (" + historicoRota.totalKmVida() + "Km),\n");
         }
 
-        rota.Percorrer();
+        historicoRota.PercorrerRota(rota);
         tanque.Consumir(rota.getQuilometragem());
 
         sb.append("percorreu rota  (" + rota.getQuilometragem() + "Km)\n}");

@@ -29,4 +29,14 @@ public enum ECombustivel {
     public double getPrecoMedioEmRs(){
         return precoMedio;
     }
+    
+    public static ECombustivel fromInt(int valor){
+        ECombustivel combustivel;
+        switch (valor) {
+            case 1: combustivel = ECombustivel.GASOLINA; break;
+            case 2: combustivel = ECombustivel.DIESEL; break;
+            default: combustivel = ECombustivel.ALCOOL; break;
+        }
+        return combustivel;
+    }
 }

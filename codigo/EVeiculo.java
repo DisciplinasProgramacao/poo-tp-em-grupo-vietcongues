@@ -51,4 +51,16 @@ public enum EVeiculo {
     public Manutencao getManutencaoTrocaPecas(){
         return ManutencaoTrocaPecas;
     }
+
+
+    public static EVeiculo fromInt(int tipoVeiculo){
+            EVeiculo veiculo;
+            switch (tipoVeiculo) {
+                case 1: veiculo = EVeiculo.VAN; break;
+                case 2: veiculo = EVeiculo.FURGAO; break;
+                case 3: veiculo = EVeiculo.CAMINHAO; break;
+                default: veiculo = EVeiculo.CARRO; break;
+            }
+            return veiculo;
+    }
 }
