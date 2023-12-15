@@ -2,7 +2,6 @@ package codigo;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 
 public class Rota {
     private double quilometragem;
@@ -32,6 +31,11 @@ public class Rota {
     }
 
 
+    public Boolean getPercorrido() {
+        return percorrido;
+    }
+
+
     public void Percorrer(){
         percorrido = true;
     }
@@ -39,6 +43,6 @@ public class Rota {
 
     @Override
     public String toString() {
-        return "Rota {percorrer " + quilometragem + "Km, em " + data + ", " + (percorrido ? "Percorrido" : "Não percorrido") + '}';
+        return "Rota {percorrer " + quilometragem + "Km, em " + Util.dataFormatada(data) + ", " + (percorrido ? "Percorrido" : "Não percorrido") + '}';
     }
 }

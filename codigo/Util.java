@@ -1,6 +1,7 @@
 package codigo;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 
 public class Util {
@@ -14,6 +15,13 @@ public class Util {
 
     public static String dataFormatada(LocalDate data){
         DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy, MMM dd");
+        String dataFormatada = data.format(formatador);
+
+         return dataFormatada;
+    }
+
+    public static String MesFormatado(YearMonth data){
+        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy, MMM");
         String dataFormatada = data.format(formatador);
 
          return dataFormatada;

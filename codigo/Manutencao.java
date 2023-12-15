@@ -17,7 +17,7 @@ public class Manutencao {
     }
 
 
-    public float getQuilometragemProgramada(){
+    public float getKmProgramada(){
         return this.quilometragemProgamada;
     }
 
@@ -52,7 +52,7 @@ public class Manutencao {
 
 
     public static Manutencao newInstance(Manutencao outra) {
-        return new Manutencao(outra.getNome(), outra.getQuilometragemProgramada(), outra.getCusto());
+        return new Manutencao(outra.getNome(), outra.getKmProgramada(), outra.getCusto());
     }
     
 

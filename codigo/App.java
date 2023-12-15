@@ -1,8 +1,12 @@
 package codigo;
 
+import java.time.*;
 import java.util.Scanner;
 
 public class App {
+
+    public static Frota frota;
+    public static Scanner scanner;
 
     /**
      * "Limpa" a tela
@@ -12,40 +16,99 @@ public class App {
         System.out.flush();
     }
 
-    public static void Menu(){
-    limparTela();
-    System.out.println
-    (
-        "1-" + "\n" +
-        "2-" + "\n" +
-        "3-" + "\n" +
-        "4-" + "\n" +
-        "5-" + "\n" +
-        "6-" + "\n" +
-        "7- Realizar manutenção no Veiculo" + "\n" +
-        "8- Calcular despesa total de um veiculo" + "\n" +
-        "9- Quilometragem total percorrida por um veiculo" + "\n" +
-        "10- Relatório de Rotas" + "\n"+
-        "0- Sair" + "\n"
 
-    );
-    
+    public static void QuebraLinha(){
+        System.out.println("______________________");
     }
 
+
     public static void main(String[] args) {
-        Scanner ler = new Scanner(System.in);
+        scanner = new Scanner(System.in);
+        
+        MainMenu();
+
+        QuebraLinha();
+        System.out.println("Fim");
+        QuebraLinha();
+        scanner.close();
+    }
+
+    
+    static void BaseMenuLoop(){
         int opcao = -1;
 
-        Menu();
-        opcao = ler.nextInt();
+        while (opcao != 0) {
+            limparTela();
+
+            StringBuilder MenuText = new StringBuilder();
+            {
+                MenuText.append("\n" + "Selecione uma opção");
+                MenuText.append("\n" + " - ");
+                MenuText.append("\n" + "0 - Voltar");
+            }            
+            System.out.println(MenuText.append("\n").toString());
+            
+            // Casos
+            {
+                if (scanner.hasNextInt()) {
+                    opcao = scanner.nextInt();
+                }
+
+                switch (opcao) {
+                    case 1:
+                        
+                        break;
+
+                    case 0:                        
+                        return;
+                
+                    default: // -1 ou número fora dos casos;
+                        break;
+                }
+            }
+        }
+    }
+
+
+    static void MainMenu(){
+        int opcao = -1;
 
         while (opcao != 0) {
-        Menu();
-        System.out.println("Selecione uma opção");
-        opcao = ler.nextInt();
-        }
+            limparTela();
 
-        System.out.println("Fim");
-        ler.close();
+            StringBuilder MenuText = new StringBuilder();
+            {
+                MenuText.append("\n" + "Selecione uma opção:");
+                MenuText.append("\n" + "1 - Carregar dados teste");
+                
+                MenuText.append("\n" + "0 - Voltar");
+            }
+            
+            System.out.println(MenuText.append("\n\n" + "Opção:").toString());
+
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+            }
+
+            // Casos
+            {
+                switch (opcao) {
+                    case 1:
+                        
+                        break;
+
+                    case 0:
+                        return;
+                
+                    default: // -1 ou número fora dos casos;
+                        break;
+                }
+            }
+        }
+    }
+
+
+    static void DadosTeste(){
+        
     }
 }

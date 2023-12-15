@@ -1,30 +1,28 @@
 package codigo;
 
-import java.util.ArrayList;
+import java.time.*;
+import java.util.*;
 
 public class Frota {
     private int tamanhoFrota;
     private ArrayList<Veiculo> listaVeiculos;
+
 
     public Frota() {
 
         this.listaVeiculos = new ArrayList<>();
     }
 
+
     public String relatorioFrota() {
-        StringBuilder relatorio = new StringBuilder();
+        StringBuilder relatorio = new StringBuilder("Relatório Frota {\n");
 
-        for (Veiculo veiculo : listaVeiculos) {
-            relatorio.append("\n Carro Placa: ").append(veiculo.getPlaca()).append("\n");
-            relatorio.append("Litros Reabastecidos: ").append(veiculo.getTotalReabastecido()).append(" litros\n");
-            relatorio.append("Quilometragem do Mês Atual: ").append(veiculo.kmTotalNoMesAtual()).append(" km\n");
-            relatorio.append("Kilometragem Total: ").append(veiculo.kmTotal()).append(" km\n");
+        listaVeiculos.stream().forEach(veiculo -> relatorio.append(veiculo.relatorio()+ ";\n") );
 
-            relatorio.append("\n");
-        }
-
+        relatorio.append("} // fim Relatório Frota ");        
         return relatorio.toString();
     }
+
 
     public Veiculo localizarVeiculo(String placa) {
         for (Veiculo veiculo : listaVeiculos) {
@@ -34,6 +32,7 @@ public class Frota {
         }
         return null;
     }
+
 
     public double quilometragemTotal() {
         double quilometragemTotal = 0;
@@ -45,39 +44,24 @@ public class Frota {
         return quilometragemTotal;
     }
 
-    public Veiculo maiorKmTotal() {
-        Veiculo veiculoMaiorKm = null;
-        double maiorKm = 0;
 
-        for (Veiculo veiculo : listaVeiculos) {
-            if (veiculo.kmTotal() > maiorKm) {
-                maiorKm = veiculo.kmTotal();
-                veiculoMaiorKm = veiculo;
-            }
-        }
-
-        return veiculoMaiorKm;
+    public Optional<Veiculo> maiorKmTotal() {
+        return listaVeiculos.stream()
+                .max(Comparator.comparing(Veiculo::kmTotal));
     }
 
-    public Veiculo maiorKmMedia() {
-        Veiculo veiculoMaiorKmMedia = null;
-        double maiorKmMedia = 0;
 
-        for (Veiculo veiculo : listaVeiculos) {
-            double kmMedia = veiculo.kmTotal() / veiculo.getQtdRotas();
-            if (kmMedia > maiorKmMedia) {
-                maiorKmMedia = kmMedia;
-                veiculoMaiorKmMedia = veiculo;
-            }
-        }
-
-        return veiculoMaiorKmMedia;
+    public Optional<Veiculo> maiorKmMedia() {
+        return listaVeiculos.stream()
+                .max(Comparator.comparing(Veiculo::KmMedia));
     }
+
 
     public int getTamanhoFrota() {
         tamanhoFrota = listaVeiculos.size();
         return tamanhoFrota;
     }
+
 
     public void adicionarVeiculo(Veiculo veiculo) {
         listaVeiculos.add(veiculo);
