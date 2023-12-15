@@ -284,7 +284,7 @@ public class App {
 
         Veiculo v = new Veiculo(placa, tipo, combustivel);
         frota.adicionarVeiculo(v);
-        System.out.println("\nNovo " + v.relatorioCurto());
+        System.out.println("\nNovo " + v.toString());
     }
 
 
@@ -316,7 +316,7 @@ public class App {
             limparTela();
             
             System.out.println("Menu Veículo:");
-            System.out.println("\nVeículo selecionado: " + veiculoSelecionado.relatorioCurto());
+            System.out.println("\nVeículo selecionado: " + veiculoSelecionado.toString());
 
             QuebraLinha();
 
@@ -349,7 +349,8 @@ public class App {
                         break;
 
                     case 3:
-                        
+                        RelatiorioVeiculo(veiculoSelecionado);
+                        QualquerTeclaContinue();
                         break;
 
                     case 0:
@@ -445,6 +446,8 @@ public class App {
 
 
     public static void PercorrerRota(Veiculo veiculoSelecionado){
+        QuebraLinha();
+
         Rota rotaSelecionada;
         {
             Optional<Rota> rotaPossivel = veiculoSelecionado.getProximaRota();
@@ -457,7 +460,15 @@ public class App {
             }
         }
 
-        String evento = veiculoSelecionado.percorrerRota(rotaSelecionada);
-        System.out.println(evento);
+        StringBuilder sb = new StringBuilder("\n");
+        sb.append(veiculoSelecionado.percorrerRota(rotaSelecionada));
+        sb.append("\n\n" + "Km total percorrida: " + veiculoSelecionado.kmTotal());
+        System.out.println(sb.toString());
+    }
+
+    
+    public static void RelatiorioVeiculo(Veiculo veiculoSelecionado){
+        QuebraLinha();
+        System.out.println(veiculoSelecionado.relatorio());
     }
 }

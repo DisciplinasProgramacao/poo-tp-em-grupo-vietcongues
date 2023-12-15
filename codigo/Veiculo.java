@@ -1,6 +1,7 @@
 package codigo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.util.*;
 
@@ -121,10 +122,21 @@ public class Veiculo {
     }
 
 
-    public String relatorioCurto(){
-        StringBuilder relatorio = new StringBuilder("Veículo {"+ getPlaca() + ", " + tipoVeiculo.getDescricao() + ", " + tanque.DescricaoCombustivel() + '}');
+    public String toString(){
+        return "Veículo {"+ getPlaca() + ", " + tipoVeiculo.getDescricao() + ", " + tanque.DescricaoCombustivel() + '}';
+    }
 
-        relatorio.append("");
+    
+
+    public String relatorio(){
+        StringBuilder relatorio = new StringBuilder("Veículo {\n");
+        relatorio.append(getPlaca() + ", " + tipoVeiculo.getDescricao() + ", " + tanque.DescricaoCombustivel() + "\n");
+        
+        relatorio.append("Litros de combustível já reabastecidos: " + tanque.getTotalReabastecidoVida() + "\n");
+        relatorio.append("Quilometragem rodada no mês atual: " + historicoRota.totalKmMes(YearMonth.from(LocalDate.now())) + "\n");
+        relatorio.append("Quilometragem rodada no tempo de vida: "+ historicoRota.totalKmVida() + "\n");
+
+        relatorio.append('}');
         
         return relatorio.toString();
     }

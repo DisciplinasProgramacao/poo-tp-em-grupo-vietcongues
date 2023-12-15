@@ -1,6 +1,5 @@
 package codigo;
 
-import java.time.*;
 import java.util.*;
 
 public class Frota {
@@ -28,8 +27,6 @@ public class Frota {
         relatorio.append("Veículo com maior Km Total: "+ placaMaiorTotal +";\n");
         relatorio.append("Veículo com maior Km Média: "+ placaMaiorMedia +";\n\n");
 
-//listaVeiculos.stream().forEach(veiculo -> relatorio.append(veiculo.relatorioCurto() + ";\n") );
-
         relatorio.append("} // fim Relatório Frota ");        
         return relatorio.toString();
     }
@@ -38,7 +35,7 @@ public class Frota {
     public String ListaVeiculosString() {
         StringBuilder lista = new StringBuilder("Lista de veículos {\n");
 
-        listaVeiculos.stream().forEach(veiculo -> lista.append(veiculo.relatorioCurto() + ";\n") );
+        listaVeiculos.stream().forEach(veiculo -> lista.append(veiculo.toString() + ";\n") );
 
         lista.append("} // fim lista ");        
         return lista.toString();
