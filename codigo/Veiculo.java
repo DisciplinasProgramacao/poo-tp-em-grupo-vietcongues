@@ -1,7 +1,6 @@
 package codigo;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.YearMonth;
 import java.util.*;
 
@@ -23,7 +22,7 @@ public class Veiculo {
     }
 
 
-    private double autonomiaAtual() {
+    public double autonomiaAtual() {
         return tanque.autonomiaAtual();
     }
 
@@ -36,6 +35,7 @@ public class Veiculo {
         this.manutencoesExecutadas = new ArrayList<ManutencaoExecutada>();
     }
 
+    
     public String getPlaca(){
         return placa;
     }

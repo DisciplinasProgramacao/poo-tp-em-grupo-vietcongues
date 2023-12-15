@@ -52,6 +52,9 @@ d) Calcular a despesa total de um veículo, considerando combustível e manuten�
 - Veículo deve gerar relatório de rotas.
 - Calcular a despesa total do veículo, considerando combustível e manutenções.
 
+## Diagrama
+
+![](/docs/diagramas/POO_TP_Frota_v02.jpg)
 
 
 ## Arquitetura
