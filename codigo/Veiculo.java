@@ -84,7 +84,7 @@ public class Veiculo {
             throw new IllegalArgumentException("Veículo " + getPlaca() + " não tem autonomia ("+ tanque.autonomiaMaxima() +"Km) para rotas de " + rota.getQuilometragem() + "Km.");
         }
 
-        StringBuilder sb = new StringBuilder("Veículo " + getPlaca() + " {\n");
+        StringBuilder sb = new StringBuilder("Evento Percorrer Rota " + getPlaca() + " {\n");
         
         if (rota.getQuilometragem() > tanque.autonomiaAtual()){
             double litrosCombustivel = rota.getQuilometragem() / tanque.ConsumoKmL();

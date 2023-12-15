@@ -344,7 +344,8 @@ public class App {
                         break;
 
                     case 2:
-                        
+                        PercorrerRota(veiculoSelecionado);
+                        QualquerTeclaContinue();
                         break;
 
                     case 3:
@@ -442,4 +443,21 @@ public class App {
         System.out.println("\nNova " + rota.toString());
     }
 
+
+    public static void PercorrerRota(Veiculo veiculoSelecionado){
+        Rota rotaSelecionada;
+        {
+            Optional<Rota> rotaPossivel = veiculoSelecionado.getProximaRota();
+            if (rotaPossivel.isPresent()) {
+                rotaSelecionada = rotaPossivel.get();
+            } else {
+                System.out.println("Nenhuma rota ainda não percorrida para o veículo " + veiculoSelecionado.getPlaca());
+                QualquerTeclaContinue();
+                return;
+            }
+        }
+
+        String evento = veiculoSelecionado.percorrerRota(rotaSelecionada);
+        System.out.println(evento);
+    }
 }
