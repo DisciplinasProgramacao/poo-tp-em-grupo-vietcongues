@@ -45,13 +45,12 @@ public class Frota {
     }
 
 
-    public Veiculo localizarVeiculo(String placa) {
-        for (Veiculo veiculo : listaVeiculos) {
-            if (veiculo.getPlaca().equals(placa)) {
-                return veiculo;
-            }
-        }
-        return null;
+    public Optional<Veiculo> localizarVeiculo(String placa) {
+        Optional<Veiculo> v = listaVeiculos.stream()
+            .filter(veiculo -> placa.equals(veiculo.getPlaca()))
+            .findFirst();
+
+        return v;
     }
 
 

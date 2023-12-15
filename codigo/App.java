@@ -1,6 +1,7 @@
 package codigo;
 
 import java.time.*;
+import java.util.Optional;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -53,6 +54,8 @@ public class App {
 
         while (opcao != 0) {
             limparTela();
+            System.out.println("Menu :");
+            QuebraLinha();
 
             StringBuilder MenuText = new StringBuilder();
             {
@@ -96,6 +99,8 @@ public class App {
 
         while (opcao != 0) {
             limparTela();
+            System.out.println("Menu principal:");
+            QuebraLinha();
 
             StringBuilder MenuText = new StringBuilder();
             {
@@ -167,6 +172,8 @@ public class App {
 
         while (opcao != 0) {
             limparTela();
+            System.out.println("Menu Frota:");
+            QuebraLinha();
 
             StringBuilder MenuText = new StringBuilder();
             {
@@ -284,8 +291,33 @@ public class App {
     static void VeiculoMenu(){
         int opcao = -1;
 
+        
+
         while (opcao != 0) {
             limparTela();
+            
+            System.out.println("Menu Veículo:");
+        
+            Veiculo veiculoSelecionado;
+            String placa;
+            {
+                System.out.println("\nPlaca: ");
+                placa = scanner.next();
+                System.out.print("");
+
+                Optional<Veiculo> veiculoPossivel = frota.localizarVeiculo(placa);
+
+                if (veiculoPossivel.isPresent()) {
+                    veiculoSelecionado = veiculoPossivel.get();
+                    System.out.println("\nVeículo encontrado: " + veiculoSelecionado.relatorioCurto());
+                } else {
+                    System.out.println("Nenhum veículo encontrado com a placa " + placa);
+                    QualquerTeclaContinue();
+                    return;
+                }
+            }
+
+            QuebraLinha();
 
             StringBuilder MenuText = new StringBuilder();
             {
