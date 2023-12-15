@@ -132,9 +132,9 @@ public class Veiculo {
         StringBuilder relatorio = new StringBuilder("Veículo {\n");
         relatorio.append(getPlaca() + ", " + tipoVeiculo.getDescricao() + ", " + tanque.DescricaoCombustivel() + "\n");
         
-        relatorio.append("Litros de combustível já reabastecidos: " + tanque.getTotalReabastecidoVida() + "\n");
-        relatorio.append("Quilometragem rodada no mês atual: " + historicoRota.totalKmMes(YearMonth.from(LocalDate.now())) + "\n");
-        relatorio.append("Quilometragem rodada no tempo de vida: "+ historicoRota.totalKmVida() + "\n");
+        relatorio.append("Litros de combustível já reabastecidos: " + String.format("%.2f", tanque.getTotalReabastecidoVida())  + "L\n");
+        relatorio.append("Quilometragem rodada no mês atual: " + String.format("%.2f", historicoRota.totalKmMes(YearMonth.from(LocalDate.now())))  + "Km\n");
+        relatorio.append("Quilometragem rodada no tempo de vida: "+ String.format("%.2f", historicoRota.totalKmVida()) + "Km\n");
 
         relatorio.append('}');
         
