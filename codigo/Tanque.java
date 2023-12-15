@@ -21,8 +21,8 @@ public class Tanque {
     public void abastecer(double litros, LocalDate data) 
         throws IllegalArgumentException
     {        
-        if (litros > getEspaçoRestanteEmLitros()) {
-            throw new IllegalArgumentException("Litros não podem ser menor que zero.");
+        if (Util.isDoubleInRange(litros, 0, getEspaçoRestanteEmLitros(), 0.01)) {
+            throw new IllegalArgumentException("Litros deve estar entre 0 e " + getEspaçoRestanteEmLitros());
         }
 
         double preco = litros * combustivel.getPrecoMedioEmRs();

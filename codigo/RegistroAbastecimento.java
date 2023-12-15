@@ -40,9 +40,6 @@ public class RegistroAbastecimento {
     
     @Override
     public String toString() {
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy, MMM dd");
-        String dataFormatada = data.format(formatador);
-
-        return "Registro Abastecimento { " + litros + "L; R$ " + String.format("%.2f", preco) + "; " + dataFormatada + ".}";
+        return "Registro Abastecimento { " + litros + "L; R$ " + String.format("%.2f", preco) + "; em " + Util.dataFormatada(data) + ".}";
     }
 }
