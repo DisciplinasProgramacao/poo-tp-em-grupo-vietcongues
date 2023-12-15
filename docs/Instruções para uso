@@ -1,0 +1,91 @@
+Instruções de uso do programa
+
+
+1. Compile o código. Para isso, abra um terminal e navegue até a pasta que contém o arquivo `App.java`. Em seguida, execute o comando `javac App.java`.
+2. Execute o aplicativo. Para isso, execute o comando `java App`.
+
+O aplicativo exibirá um menu com as seguintes opções:
+
+* 1- Cadastrar veículo
+* 2- Listar veículos
+* 3- Editar veículo
+* 4- Excluir veículo
+* 5- Realizar manutenção no veículo
+* 6- Calcular despesa total do veículo
+* 7- Quilometragem total percorrida pelo veículo
+* 8- Relatório de rotas
+* 0- Sair
+
+Para selecionar uma opção, digite o número da opção e pressione Enter.
+
+Opções
+* 1- Cadastrar veículo
+* 2- Listar veículos
+* 3- Editar veículo
+* 4- Excluir veículo
+* 5- Realizar manutenção no veículo
+* 6- Calcular despesa total do veículo
+* 7- Quilometragem total percorrida pelo veículo
+* 8- Relatório de rotas
+* 0- Sair
+Exemplos
+
+Opções
+
+* 1- Cadastrar veículo
+
+Esta opção permite cadastrar um novo veículo. Para isso, o aplicativo solicitará as seguintes informações:
+
+    * Marca
+    * Modelo
+    * Ano
+    * Placa
+    * Quilometragem
+
+* 2- Listar veículos
+
+Esta opção exibe uma lista de todos os veículos cadastrados.
+
+* 3- Editar veículo
+
+Esta opção permite editar as informações de um veículo já cadastrado. Para isso, o aplicativo solicitará o número do veículo que deseja editar. Em seguida, o aplicativo solicitará as informações que deseja editar.
+
+* 4- Excluir veículo
+
+Esta opção permite excluir um veículo já cadastrado. Para isso, o aplicativo solicitará o número do veículo que deseja excluir.
+
+* 5- Realizar manutenção no veículo
+
+Esta opção permite registrar uma manutenção realizada em um veículo. Para isso, o aplicativo solicitará as seguintes informações:
+
+    * Data da manutenção
+    * Tipo da manutenção
+    * Valor da manutenção
+
+* 6- Calcular despesa total do veículo
+
+Esta opção calcula a despesa total de um veículo, considerando as manutenções realizadas.
+
+* 7- Quilometragem total percorrida pelo veículo
+
+Esta opção exibe a quilometragem total percorrida por um veículo.
+
+* 8- Relatório de rotas
+
+Esta opção exibe um relatório de rotas realizadas por um veículo.
+
+* 0- Sair
+
+Esta opção fecha o aplicativo.
+
+Exemplos
+
+* Para cadastrar um novo veículo, digite `1` e pressione Enter. Em seguida, forneça as informações solicitadas pelo aplicativo.
+* Para listar todos os veículos cadastrados, digite `2` e pressione Enter.
+* Para editar as informações de um veículo já cadastrado, digite `3` e pressione Enter. Em seguida, forneça o número do veículo que deseja editar e as informações que deseja editar.
+* Para excluir um veículo já cadastrado, digite `4` e pressione Enter. Em seguida, forneça o número do veículo que deseja excluir.
+* Para registrar uma manutenção realizada em um veículo, digite `5` e pressione Enter. Em seguida, forneça as informações solicitadas pelo aplicativo.
+* Para calcular a despesa total de um veículo, digite `6` e pressione Enter. Em seguida, forneça o número do veículo que deseja calcular a despesa total.
+* Para exibir a quilometragem total percorrida por um veículo, digite `7` e pressione Enter. Em seguida, forneça o número do veículo que deseja exibir a quilometragem.
+* Para exibir um relatório de rotas realizadas por um veículo, digite `8` e pressione Enter. Em seguida, forneça o número do veículo que deseja exibir o relatório de rotas.
+* Para sair do aplicativo, digite `0` e pressione Enter.
