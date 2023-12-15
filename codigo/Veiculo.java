@@ -102,12 +102,14 @@ public class Veiculo {
 
             sb.append("executou Manutenção Periódica (" + historicoRota.totalKmVida() + "Km),\n");
         }
+        else sb.append("não executou Manutenção Periódica,\n");
 
         if (totalPercorrido > tipoVeiculo.getManutencaoTrocaPecas().getKmProgramada()){
             manutencoesExecutadas.add(new ManutencaoExecutada(tipoVeiculo.getManutencaoTrocaPecas(), rota.getData()));
 
             sb.append("executou Manutenção Troca de Peças (" + historicoRota.totalKmVida() + "Km),\n");
         }
+        else sb.append("não executou Manutenção Troca de Peças,\n");
 
         historicoRota.PercorrerRota(rota);
         tanque.Consumir(rota.getQuilometragem());
